@@ -1,0 +1,64 @@
+{
+  "recorded_at": "2026-10-18T02:58:20.582129+00:00",
+  "pull_request": "https://github.com/Soju06/codex-lb/pull/2638",
+  "parent_commit": "72630bbfeee9e3b0d9acfb95e2b1e706b8b0188e",
+  "pr_commit": "77873ef3b109eac1c937d6e505209055974ef72b",
+  "shared_frontend_git_tree": "540e758e98ead233e2a6a9ca850ecccd0e9a4d7d",
+  "shared_uv_lock_git_blob": "ca9163d6da43b2c02780ac039e1f76adc00bc977",
+  "fixture": {
+    "accounts": 1,
+    "email": "promax@example.invalid",
+    "plan_type": "promax",
+    "primary_used_percent": 0,
+    "secondary_used_percent": 0,
+    "primary_window_minutes": 300,
+    "secondary_window_minutes": 10080,
+    "requests_proxied": 0,
+    "real_credentials_used": false
+  },
+  "method": "Fresh production frontend build; real backend at each exact commit through repository scripts/run_dashboard_browser_smoke.py --backend-fd. Direct synthetic SQLite seeding using AccountsRepository and UsageRepository. Chromium renders real local dashboard/API without response interception or mocking; network namespace prevents outbound traffic.",
+  "tool_versions": {
+    "node": "24.16.0",
+    "bun": "1.3.14",
+    "python": "3.14.7",
+    "chromium_build": "1248"
+  },
+  "source_files_changed": false,
+  "both_backend_processes_stopped": true,
+  "images": [
+    {
+      "phase": "before",
+      "file": "before-dashboard.png",
+      "sha256": "744f0267b8daafa537a9429e7347d1a898d72b28fafc1cb21300acae91545b7b",
+      "width": 1440,
+      "height": 1654,
+      "primary_capacity_credits": 0,
+      "secondary_capacity_credits": 0,
+      "rendered_plan": "Promax",
+      "browser_page_errors": 0,
+      "browser_requests": 62,
+      "browser_requests_non_loopback": 0,
+      "http_errors": 0
+    },
+    {
+      "phase": "after",
+      "file": "after-dashboard.png",
+      "sha256": "2c4ead91102e1e9435ea3b266d22d75930554687ec8aafbe48fc7456c5e6142e",
+      "width": 1440,
+      "height": 1654,
+      "primary_capacity_credits": 1500,
+      "secondary_capacity_credits": 50400,
+      "rendered_plan": "Promax",
+      "browser_page_errors": 0,
+      "browser_requests": 62,
+      "browser_requests_non_loopback": 0,
+      "http_errors": 0
+    }
+  ],
+  "limitations": [
+    "Focused dashboard visualization of the conservative capacity floor, not a provider quota measurement.",
+    "Uses the repository browser-smoke harness, which disables background schedulers in process; it does not exercise provider refresh or real account authentication.",
+    "Does not replace the prior routing tests or pending upstream CI/maintainer review."
+  ],
+  "attribution": "Additional validation performed by an AI assistant on behalf of matthematics1137; the original PR keeps its existing Claude Code attribution."
+}
